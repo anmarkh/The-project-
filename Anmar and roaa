@@ -1,0 +1,37 @@
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class project {
+
+        public static void main(String[] args) {
+            Scanner input = new Scanner(System.in);
+            LinkedList<String> searchHistory = new LinkedList<>();
+            String search = "";
+
+            while (true) {
+                System.out.println("Enter a name to search or type 'Exit' to stop the program:");
+
+// عرض آخر 5 عمليات بحث (بشكل عمودي) إذا كانت موجودة
+                if (!searchHistory.isEmpty()) {
+                    for (String s : searchHistory) {
+                        System.out.println(s);
+                    }
+                }
+
+                search = input.nextLine();
+
+// إذا كتب المستخدم "Exit"، نخرج من البرنامج
+                if (search.equalsIgnoreCase("Exit")) {
+                    System.out.println("Program terminated.");
+                    break;
+                }
+
+// حذف أول عنصر إذا وصلت القائمة إلى 5 عناصر
+                if (searchHistory.size() == 5) {
+                    searchHistory.removeFirst();
+                }
+
+// إضافة البحث الجديد للقائمة
+                searchHistory.add(search);
+System.out.println("last searches: " );
+                System.out.println( search);
