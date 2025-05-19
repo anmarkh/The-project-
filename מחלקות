@@ -1,0 +1,23 @@
+import java.util.LinkedList;
+
+public class SearchHistoryManager {
+    private LinkedList<String> searchHistory;
+
+    // בנאי ברירת מחדל - ينشئ القائمة
+    public SearchHistoryManager() {
+        searchHistory = new LinkedList<>();
+    }
+
+    // פונקציה להוספת חיפוש חדש לרשימה (تضيف عملية بحث جديدة)
+    public void addSearch(String search) {
+        if (searchHistory.size() == 5) {
+            searchHistory.removeFirst(); // حذف الأقدم إذا وصلنا لـ 5
+        }
+        searchHistory.add(search); // إضافة البحث الجديد
+    }
+
+    // פונקציה שמחזירה את רשימת החיפושים (تُرجع القائمة)
+    public LinkedList<String> getSearchHistory() {
+        return searchHistory;
+    }
+}
