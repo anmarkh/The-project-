@@ -21,3 +21,26 @@ public class SearchHistoryManager {
         return searchHistory;
     }
 }
+ import java.io.FileWriter;
+import java.io.IOException;
+
+public class FileSaver {
+
+    private String fileName;
+
+    // Constructor
+    public FileSaver(String fileName) {
+        this.fileName = fileName;
+    }
+
+    // Save text to file
+    public void saveToFile(String text) {
+        try {
+            FileWriter writer = new FileWriter(fileName, true); // true عشان يضيف بدون ما يمسح القديم
+            writer.write(text + "\n");
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("حدث خطأ أثناء الحفظ في الملف.");
+        }
+    }
+}
